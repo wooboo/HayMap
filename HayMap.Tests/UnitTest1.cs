@@ -1,0 +1,93 @@
+﻿using System;
+using HayMap.Automapper;
+using HayMap.EnumMapper;
+using HayMap.Mapper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace HayMap.Tests
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            var someObject = new SomeType()
+            {
+                Value = 312
+            };
+            var enum1 = SomeEnum.One;
+            var enum2 = SomeOtherEnum.Zero;
+            SomeEnum? enum3 = SomeEnum.One;
+            SomeOtherEnum? enum4 = SomeOtherEnum.Zero;
+            SomeEnum? enum5 = null;
+            SomeOtherEnum? enum6 = null;
+
+            var someOtherObject1 = new SomeOtherType(3);
+            var someOtherObject2 = new SomeOtherType(3);
+            var someOtherObject3 = new SomeOtherType(3);
+            var someOtherObject4 = new SomeOtherType(3);
+            var mapper = new SomeOtherFullMapper();
+
+
+            SomeOtherType r1 = someObject.Using(mapper).Create();
+            SomeOtherType r2 = someObject.Using(mapper).Update(someOtherObject1);
+
+            SomeOtherType r3 = someObject.Using(new SomeOtherCreatableMapper()).Create();
+            SomeOtherType r4 = someObject.Using(new SomeOtherUpdatableMapper()).Update(someOtherObject2);
+
+            SomeOtherType r5 = someObject.UsingDynamicMapper<SomeOtherType>().Create();
+            SomeOtherType r6 = someObject.UsingDynamicMapper<SomeOtherType>().Update(someOtherObject3);
+
+            SomeOtherType r7 = someObject.UsingAutoMapper<SomeOtherType>().Create();
+            SomeOtherType r8 = someObject.UsingAutoMapper<SomeOtherType>().Update(someOtherObject4);
+
+            SomeOtherType r9 = someObject.Using((t) => new SomeOtherType(t.Value)).Create();
+            SomeOtherType r10 = someObject.Using((SomeType t, SomeOtherType d) => d.UpdateOtherValue(t.Value)).Update(someOtherObject2);
+
+            SomeOtherType r11 = someObject.Using(MapCreate).Create();
+            SomeOtherType r12 = someObject.Using<SomeType, SomeOtherType>(MapUpdate).Update(someOtherObject2);
+
+
+            var resEnum01 = enum1.UsingEnumMapper<SomeOtherEnum>().Create();
+            try
+            {
+                var resEnum02 = enum2.UsingEnumMapper<SomeEnum>().Create();
+            }
+            catch { }
+            var resEnum03 = enum3.UsingEnumMapper<SomeOtherEnum>().Create();
+            try
+            {
+                var resEnum04 = enum4.UsingEnumMapper<SomeEnum>().Create();
+            }
+            catch { }
+            try
+            {
+                var resEnum05 = enum5.UsingEnumMapper<SomeOtherEnum>().Create();
+            }
+            catch { }
+            try
+            {
+                var resEnum06 = enum6.UsingEnumMapper<SomeEnum>().Create();
+            }
+            catch { }
+
+            var resEnum11 = enum1.UsingEnumMapperWithDefault(SomeOtherEnum.Two).Create();
+            var resEnum12 = enum2.UsingEnumMapperWithDefault(SomeEnum.Two).Create();
+            var resEnum13 = enum3.UsingEnumMapperWithDefault(SomeOtherEnum.Two).Create();
+            var resEnum14 = enum4.UsingEnumMapperWithDefault(SomeEnum.Two).Create();
+            var resEnum15 = enum5.UsingEnumMapperWithDefault(SomeOtherEnum.Two).Create();
+            var resEnum16 = enum6.UsingEnumMapperWithDefault(SomeEnum.Two).Create();
+
+        }
+        private static SomeOtherType MapCreate(SomeType source)
+        {
+            return new SomeOtherType(source.Value);
+        }
+        private static void MapUpdate(SomeType source, SomeOtherType dest)
+        {
+            dest.UpdateOtherValue(source.Value);
+        }
+
+    }
+}
