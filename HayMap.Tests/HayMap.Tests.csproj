@@ -35,6 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -54,6 +59,8 @@
     <Compile Include="SomeOtherCreatableMapper.cs" />
     <Compile Include="SomeOtherEnum.cs" />
     <Compile Include="SomeOtherFullMapper.cs" />
+    <Compile Include="SomeOtherSimpleType.cs" />
+    <Compile Include="SomeOtherSimpleUpdatableMapper.cs" />
     <Compile Include="SomeOtherType.cs" />
     <Compile Include="SomeOtherUpdatableMapper.cs" />
     <Compile Include="SomeType.cs" />
@@ -69,6 +76,9 @@
       <Project>{4f047011-5d7e-456a-85f1-6d4c865a6db0}</Project>
       <Name>HayMap</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

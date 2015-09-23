@@ -40,11 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumMapper\CreatableEnumMapper.cs" />
+    <Compile Include="EnumMapper\CreatableNullableEnumMapper.cs" />
     <Compile Include="EnumMapper\EnumMapperExtensions.cs" />
     <Compile Include="Mapper\ConvertUsing.cs" />
     <Compile Include="Mapper\ConvertUsingCreatable.cs" />
     <Compile Include="Mapper\ConvertUsingUpdatable.cs" />
     <Compile Include="Mapper\DelegatedMapper.cs" />
+    <Compile Include="Mapper\FullFromUpdatableMapper.cs" />
     <Compile Include="Mapper\FullMapperBase.cs" />
     <Compile Include="Mapper\IConvertUsingCreatableMapper.cs" />
     <Compile Include="Mapper\IConvertUsingUpdatableMapper.cs" />

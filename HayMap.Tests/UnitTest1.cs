@@ -35,6 +35,7 @@ namespace HayMap.Tests
 
             SomeOtherType r3 = someObject.Using(new SomeOtherCreatableMapper()).Create();
             SomeOtherType r4 = someObject.Using(new SomeOtherUpdatableMapper()).Update(someOtherObject2);
+            SomeOtherSimpleType r4s = someObject.UsingUpdater(new SomeOtherSimpleUpdatableMapper()).Create();
 
             SomeOtherType r5 = someObject.UsingDynamicMapper<SomeOtherType>().Create();
             SomeOtherType r6 = someObject.UsingDynamicMapper<SomeOtherType>().Update(someOtherObject3);
@@ -44,6 +45,7 @@ namespace HayMap.Tests
 
             SomeOtherType r9 = someObject.Using((t) => new SomeOtherType(t.Value)).Create();
             SomeOtherType r10 = someObject.Using((SomeType t, SomeOtherType d) => d.UpdateOtherValue(t.Value)).Update(someOtherObject2);
+            SomeOtherSimpleType r10s = someObject.UsingUpdater((SomeType t, SomeOtherSimpleType d) => d.OtherValue = t.Value).Create();
 
             SomeOtherType r11 = someObject.Using(MapCreate).Create();
             SomeOtherType r12 = someObject.Using<SomeType, SomeOtherType>(MapUpdate).Update(someOtherObject2);
