@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public class ConvertUsing<TSource, TDest> : IConverUsingFullMapper<TDest> 
+    public class ConvertUsing<TSource, TDest> : IConvertUsingFullMapper<TDest> 
     {
         private readonly IFullMapper<TSource, TDest> _mapper;
         private readonly TSource _source;

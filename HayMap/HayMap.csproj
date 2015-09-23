@@ -48,7 +48,7 @@
     <Compile Include="Mapper\FullMapperBase.cs" />
     <Compile Include="Mapper\IConvertUsingCreatableMapper.cs" />
     <Compile Include="Mapper\IConvertUsingUpdatableMapper.cs" />
-    <Compile Include="Mapper\IConverUsingFullMapper.cs" />
+    <Compile Include="Mapper\IConvertUsingFullMapper.cs" />
     <Compile Include="Mapper\ICreatableMapper.cs" />
     <Compile Include="Mapper\IFullMapper.cs" />
     <Compile Include="Mapper\IUpdatableMapper.cs" />

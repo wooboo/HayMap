@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public interface IConverUsingFullMapper<TDest> : IConvertUsingCreatableMapper<TDest>,
+    public interface IConvertUsingFullMapper<TDest> : IConvertUsingCreatableMapper<TDest>,
         IConvertUsingUpdatableMapper<TDest>
     {
         
