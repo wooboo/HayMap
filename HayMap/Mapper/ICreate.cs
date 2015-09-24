@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public interface IConvertUsingCreatableMapper<out TDest>
+    public interface ICreate<out TDest>
     {
         TDest Create();
     }

@@ -1,11 +1,11 @@
 namespace HayMap.Mapper
 {
-    public class FullFromUpdatableMapper<TSource, TDest> : IFullMapper<TSource, TDest>
+    public class CreatingAndUpdatingFromUpdatableMapper<TSource, TDest> : ICreatingAndUpdatingMapper<TSource, TDest>
         where TDest: class, new()
     {
         private readonly IUpdatableMapper<TSource, TDest> _innerMapper;
 
-        public FullFromUpdatableMapper(IUpdatableMapper<TSource, TDest> innerMapper)
+        public CreatingAndUpdatingFromUpdatableMapper(IUpdatableMapper<TSource, TDest> innerMapper)
         {
             _innerMapper = innerMapper;
         }

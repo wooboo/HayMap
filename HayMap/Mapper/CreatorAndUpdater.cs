@@ -1,11 +1,11 @@
 namespace HayMap.Mapper
 {
-    public class ConvertUsing<TSource, TDest> : IConvertUsingFullMapper<TDest> 
+    public class CreatorAndUpdater<TSource, TDest> : ICreateAndUpdate<TDest> 
     {
-        private readonly IFullMapper<TSource, TDest> _mapper;
+        private readonly ICreatingAndUpdatingMapper<TSource, TDest> _mapper;
         private readonly TSource _source;
 
-        public ConvertUsing(TSource source, IFullMapper<TSource, TDest> mapper)
+        public CreatorAndUpdater(TSource source, ICreatingAndUpdatingMapper<TSource, TDest> mapper)
         {
             _source = source;
             _mapper = mapper;

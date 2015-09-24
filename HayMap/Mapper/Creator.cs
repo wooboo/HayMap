@@ -1,11 +1,11 @@
 namespace HayMap.Mapper
 {
-    public class ConvertUsingCreatable<TSource, TDest> : IConvertUsingCreatableMapper<TDest>
+    public class Creator<TSource, TDest> : ICreate<TDest>
     {
-        private readonly ICreatableMapper<TSource, TDest> _mapper;
+        private readonly ICreatingMapper<TSource, TDest> _mapper;
         private readonly TSource _source;
 
-        public ConvertUsingCreatable(TSource source, ICreatableMapper<TSource, TDest> mapper)
+        public Creator(TSource source, ICreatingMapper<TSource, TDest> mapper)
         {
             _source = source;
             _mapper = mapper;

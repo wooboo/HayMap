@@ -27,13 +27,19 @@ namespace HayMap.Tests
             var someOtherObject2 = new SomeOtherType(3);
             var someOtherObject3 = new SomeOtherType(3);
             var someOtherObject4 = new SomeOtherType(3);
-            var mapper = new SomeOtherFullMapper();
+            var mapper = new SomeOtherCreatingAndUpdatingMapper();
 
+            var res1 = mapper.Create(someObject);
+            mapper.Update(someObject, res1);
+            ICreatingMapper<SomeType, SomeOtherType> dynamicMapper = new DynamicMapper<SomeType, SomeOtherType>(AutoMapper.Mapper.Engine);
+            ICreatingMapper<SomeEnum, SomeOtherEnum> enumMapper = new CreatingEnumMapper<SomeEnum, SomeOtherEnum>(SomeOtherEnum.Zero);
 
+            dynamicMapper.Create(someObject);
+            enumMapper.Create(enum1);
             SomeOtherType r1 = someObject.Using(mapper).Create();
             SomeOtherType r2 = someObject.Using(mapper).Update(someOtherObject1);
 
-            SomeOtherType r3 = someObject.Using(new SomeOtherCreatableMapper()).Create();
+            SomeOtherType r3 = someObject.Using(new SomeOtherCreatingMapper()).Create();
             SomeOtherType r4 = someObject.Using(new SomeOtherUpdatableMapper()).Update(someOtherObject2);
             SomeOtherSimpleType r4s = someObject.UsingUpdater(new SomeOtherSimpleUpdatableMapper()).Create();
 
@@ -51,26 +57,26 @@ namespace HayMap.Tests
             SomeOtherType r12 = someObject.Using<SomeType, SomeOtherType>(MapUpdate).Update(someOtherObject2);
 
 
-            var resEnum01 = enum1.UsingEnumMapper<SomeOtherEnum>().Create();
+            var resEnum01 = enum1.UsingEnumMapper<SomeEnum, SomeOtherEnum>().Create();
             try
             {
-                var resEnum02 = enum2.UsingEnumMapper<SomeEnum>().Create();
+                var resEnum02 = enum2.UsingEnumMapper<SomeOtherEnum, SomeEnum>().Create();
             }
             catch { }
-            var resEnum03 = enum3.UsingEnumMapper<SomeOtherEnum>().Create();
+            var resEnum03 = enum3.UsingEnumMapper<SomeEnum?, SomeOtherEnum>().Create();
             try
             {
-                var resEnum04 = enum4.UsingEnumMapper<SomeEnum>().Create();
-            }
-            catch { }
-            try
-            {
-                var resEnum05 = enum5.UsingEnumMapper<SomeOtherEnum>().Create();
+                var resEnum04 = enum4.UsingEnumMapper<SomeOtherEnum?, SomeEnum>().Create();
             }
             catch { }
             try
             {
-                var resEnum06 = enum6.UsingEnumMapper<SomeEnum>().Create();
+                var resEnum05 = enum5.UsingEnumMapper<SomeEnum?, SomeOtherEnum>().Create();
+            }
+            catch { }
+            try
+            {
+                var resEnum06 = enum6.UsingEnumMapper<SomeOtherEnum?, SomeEnum>().Create();
             }
             catch { }
 
@@ -92,4 +98,5 @@ namespace HayMap.Tests
         }
 
     }
+    
 }

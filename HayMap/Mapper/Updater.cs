@@ -1,11 +1,11 @@
 namespace HayMap.Mapper
 {
-    public class ConvertUsingUpdatable<TSource, TDest> : IConvertUsingUpdatableMapper<TDest>
+    public class Updater<TSource, TDest> : IUpdate<TDest>
     {
         private readonly IUpdatableMapper<TSource, TDest> _mapper;
         private readonly TSource _source;
 
-        public ConvertUsingUpdatable(TSource source, IUpdatableMapper<TSource, TDest> mapper)
+        public Updater(TSource source, IUpdatableMapper<TSource, TDest> mapper)
         {
             _source = source;
             _mapper = mapper;

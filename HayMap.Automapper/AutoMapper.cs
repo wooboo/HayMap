@@ -3,7 +3,7 @@ using HayMap.Mapper;
 
 namespace HayMap.Automapper
 {
-    public class AutoMapper<TSource, TDest> : IFullMapper<TSource, TDest>
+    public class AutoMapper<TSource, TDest> : ICreatingAndUpdatingMapper<TSource, TDest>
     {
         private readonly IMappingEngine _mappingEngine;
 

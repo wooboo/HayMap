@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public abstract class FullMapperBase<TSource, TDest> : IFullMapper<TSource, TDest> 
+    public abstract class CreatingAndUpdatingMapperBase<TSource, TDest> : ICreatingAndUpdatingMapper<TSource, TDest> 
         where TDest : class, new()
     {
         public TDest Create(TSource source)

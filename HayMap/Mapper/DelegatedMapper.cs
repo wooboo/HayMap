@@ -2,7 +2,7 @@ using System;
 
 namespace HayMap.Mapper
 {
-    public class DelegatedMapper<TSource, TDest> : IFullMapper<TSource, TDest>
+    public class DelegatedMapper<TSource, TDest> : ICreatingAndUpdatingMapper<TSource, TDest>
     {
         private readonly Func<TSource, TDest> _create;
         private readonly Action<TSource, TDest> _update;

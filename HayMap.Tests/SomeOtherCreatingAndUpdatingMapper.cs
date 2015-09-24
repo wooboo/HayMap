@@ -2,7 +2,7 @@ using HayMap.Mapper;
 
 namespace HayMap.Tests
 {
-    public class SomeOtherFullMapper : IFullMapper<SomeType, SomeOtherType>
+    public class SomeOtherCreatingAndUpdatingMapper : ICreatingAndUpdatingMapper<SomeType, SomeOtherType>
     {
         public SomeOtherType Create(SomeType source)
         {

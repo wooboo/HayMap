@@ -18,49 +18,49 @@ namespace HayMap.EnumMapper
 
         //}
 
-        public static IConvertUsingCreatableMapper<TDest> UsingEnumMapper<TDest>(this object source)
+        public static ICreate<TDest> UsingEnumMapper<TSource, TDest>(this TSource source)
         {
-            
-            ICreatableMapper<object, TDest> creatableEnumMapper;
+
+            ICreatingMapper<TSource, TDest> creatingEnumMapper;
 
             Type type = source.GetType();
             if (type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>) &&
                 Nullable.GetUnderlyingType(type).GetTypeInfo().IsEnum)
             {
-                creatableEnumMapper = new CreatableNullableEnumMapper<TDest>();
+                creatingEnumMapper = new CreatingNullableEnumMapper<TSource, TDest>();
             }
             else if (type.GetTypeInfo().IsEnum)
             {
-                creatableEnumMapper = new CreatableEnumMapper<TDest>();
+                creatingEnumMapper = new CreatingEnumMapper<TSource, TDest>();
             }
             else
             {
                 throw new NotSupportedException("Enum or Nullable Enum is only supported");
             }
 
-            return new ConvertUsingCreatable<object, TDest>(source, creatableEnumMapper);
+            return new Creator<TSource, TDest>(source, creatingEnumMapper);
         }
 
-        public static IConvertUsingCreatableMapper<TDest> UsingEnumMapperWithDefault<TSource, TDest>(this TSource source, TDest @default)
+        public static ICreate<TDest> UsingEnumMapperWithDefault<TSource, TDest>(this TSource source, TDest @default)
         {
-            ICreatableMapper<object, TDest> creatableEnumMapper;
+            ICreatingMapper<TSource, TDest> creatingEnumMapper;
 
             Type type = typeof(TSource);
             if (type.GetTypeInfo().IsGenericType && type.GetGenericTypeDefinition() == typeof (Nullable<>) &&
                 Nullable.GetUnderlyingType(type).GetTypeInfo().IsEnum)
             {
-                creatableEnumMapper = new CreatableNullableEnumMapper<TDest>(@default);
+                creatingEnumMapper = new CreatingNullableEnumMapper<TSource, TDest>(@default);
             }
             else if (type.GetTypeInfo().IsEnum)
             {
-                creatableEnumMapper = new CreatableEnumMapper<TDest>(@default);
+                creatingEnumMapper = new CreatingEnumMapper<TSource, TDest>(@default);
             }
             else
             {
                 throw new NotSupportedException("Enum or Nullable Enum is only supported");
             }
 
-            return new ConvertUsingCreatable<object, TDest>(source, creatableEnumMapper);
+            return new Creator<TSource, TDest>(source, creatingEnumMapper);
         }
     }
 }

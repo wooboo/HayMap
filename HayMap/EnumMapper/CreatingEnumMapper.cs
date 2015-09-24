@@ -5,20 +5,20 @@ using HayMap.Mapper;
 namespace HayMap.EnumMapper
 {
 
-    public class CreatableEnumMapper<TDest> : ICreatableMapper<object, TDest>
+    public class CreatingEnumMapper<TSource, TDest> : ICreatingMapper<TSource, TDest>
     {
         private readonly TDest _default;
         private bool _throwIfNotFound = false;
-        public CreatableEnumMapper()
+        public CreatingEnumMapper()
         {
             _throwIfNotFound = true;
         }
-        public CreatableEnumMapper(TDest @default)
+        public CreatingEnumMapper(TDest @default)
         {
             _default = @default;
         }
 
-        public TDest Create(object source)
+        public TDest Create(TSource source)
         {
             var intValue = Convert.ToInt32(source, CultureInfo.InvariantCulture);
             if (Enum.IsDefined(typeof(TDest), intValue))

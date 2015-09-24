@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public interface IConvertUsingUpdatableMapper<TDest>
+    public interface IUpdate<TDest>
     {
         TDest Update(TDest dest);
     }

@@ -4,23 +4,23 @@ using HayMap.Mapper;
 
 namespace HayMap.EnumMapper
 {
-    public class CreatableNullableEnumMapper<TDest> : ICreatableMapper<object, TDest>
+    public class CreatingNullableEnumMapper<TSource, TDest> : ICreatingMapper<TSource, TDest>
     {
         private readonly TDest _default;
         private bool _throwIfNotFound = false;
-        private ICreatableMapper<object, TDest> _mapper;
-        public CreatableNullableEnumMapper()
+        private ICreatingMapper<TSource, TDest> _mapper;
+        public CreatingNullableEnumMapper()
         {
             _throwIfNotFound = true;
-            _mapper = new CreatableEnumMapper<TDest>();
+            _mapper = new CreatingEnumMapper<TSource, TDest>();
         }
-        public CreatableNullableEnumMapper(TDest @default)
+        public CreatingNullableEnumMapper(TDest @default)
         {
             _default = @default;
-            _mapper = new CreatableEnumMapper<TDest>(@default);
+            _mapper = new CreatingEnumMapper<TSource, TDest>(@default);
         }
 
-        public TDest Create(object source)
+        public TDest Create(TSource source)
         {
             //var t = source.GetType();
             //if ((bool) t.GetTypeInfo().GetDeclaredProperty("HasValue").GetValue(source))

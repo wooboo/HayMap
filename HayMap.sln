@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HayMap", "HayMap\HayMap.csproj", "{4F047011-5D7E-456A-85F1-6D4C865A6DB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HayMap", "HayMap\HayMap.csproj", "{82E03AEA-3F70-4D24-A230-3AE05794E8B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HayMap.Automapper", "HayMap.Automapper\HayMap.Automapper.csproj", "{E31C00E2-FB32-4339-A89F-C02D8C8D23A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HayMap.Automapper", "HayMap.Automapper\HayMap.Automapper.csproj", "{0BFF33A4-420D-4833-8E0F-B0A679655549}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HayMap.Tests", "HayMap.Tests\HayMap.Tests.csproj", "{84FC16BE-53FD-4FD1-B767-FEDE6BEDFFF9}"
 EndProject
@@ -15,14 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4F047011-5D7E-456A-85F1-6D4C865A6DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F047011-5D7E-456A-85F1-6D4C865A6DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F047011-5D7E-456A-85F1-6D4C865A6DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F047011-5D7E-456A-85F1-6D4C865A6DB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E31C00E2-FB32-4339-A89F-C02D8C8D23A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E31C00E2-FB32-4339-A89F-C02D8C8D23A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E31C00E2-FB32-4339-A89F-C02D8C8D23A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E31C00E2-FB32-4339-A89F-C02D8C8D23A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E03AEA-3F70-4D24-A230-3AE05794E8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E03AEA-3F70-4D24-A230-3AE05794E8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E03AEA-3F70-4D24-A230-3AE05794E8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E03AEA-3F70-4D24-A230-3AE05794E8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BFF33A4-420D-4833-8E0F-B0A679655549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BFF33A4-420D-4833-8E0F-B0A679655549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BFF33A4-420D-4833-8E0F-B0A679655549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BFF33A4-420D-4833-8E0F-B0A679655549}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84FC16BE-53FD-4FD1-B767-FEDE6BEDFFF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84FC16BE-53FD-4FD1-B767-FEDE6BEDFFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84FC16BE-53FD-4FD1-B767-FEDE6BEDFFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU

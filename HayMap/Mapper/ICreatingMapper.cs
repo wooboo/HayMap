@@ -1,6 +1,6 @@
 namespace HayMap.Mapper
 {
-    public interface ICreatableMapper<in TSource, out TDest>
+    public interface ICreatingMapper<in TSource, out TDest>
     {
         TDest Create(TSource source);
     }
